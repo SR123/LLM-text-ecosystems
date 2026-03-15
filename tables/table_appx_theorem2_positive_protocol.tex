@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Task~B environment-comparison results for Theorem~2 on the in-distribution split.}
+\label{tab:appx-theorem2-positive-protocol}
+\begin{tabular}{p{0.23\linewidth}ccccc}
+\toprule
+Environment & \shortstack{Direct\\exact} & \shortstack{Direct\\clean} & \shortstack{Marker\\contam.} & \shortstack{Process\\accuracy} & \shortstack{Trace\\validity} \\
+\midrule
+\emph{Artefact-only} & 0.562 & 0.562 & 0.000 & 0.559 & 0.000 \\
+\emph{Worked-trace} & 0.969 & 0.000 & 1.000 & 0.969 & 0.969 \\
+\emph{Failed-then-repair} & 0.029 & 0.000 & 1.000 & 0.033 & 0.033 \\
+\bottomrule
+\end{tabular}
+\end{table}

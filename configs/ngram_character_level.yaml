@@ -1,0 +1,6 @@
+experiment_name: ngram_character_level
+corpus: conan_doyle
+order: 4
+seed: 13
+max_chars: 60000
+generation_length: 1000

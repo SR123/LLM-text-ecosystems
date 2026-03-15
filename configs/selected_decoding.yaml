@@ -1,0 +1,11 @@
+selected_decoding:
+  horizon: 4
+  first_step_top_k: 8
+  beam_width: 4
+  branch_temperature: 1.0
+  selection_temperature: 1.0
+  repetition_ngram: 4
+  repetition_penalty: 0.8
+  length_normalize: true
+  deterministic: true
+  device_preference: mps_or_cpu

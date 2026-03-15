@@ -1,0 +1,8 @@
+tokenizer:
+  input_split_path: GitHub/corpora/splits/conan_doyle/train.txt
+  model_type: bpe
+  vocab_size: 1000
+  character_coverage: 1.0
+  add_bos: false
+  add_eos: false
+  output_dir: GitHub/data/outputs/transformer_conan_doyle/tokenizer

@@ -1,0 +1,7 @@
+experiment_name: ngram_conan_doyle
+corpus: conan_doyle
+order: 3
+seed: 13
+max_tokens: 50000
+generation_length: 120
+selection_rule: neutral

@@ -1,0 +1,66 @@
+{
+  "config": {
+    "V": 10,
+    "alpha": 1.0,
+    "exact_max_states": 200000,
+    "init_mode": "random_support_dirichlet",
+    "iterations": 30,
+    "min_context_mass": 0.0,
+    "n": 4,
+    "num_rollout_samples": 50000,
+    "output_root_dir": "outputs/ngram_population_large_scale_theorem1",
+    "probe_count": 8,
+    "probe_epsilon": 0.02,
+    "rollout_mode": "auto",
+    "run_label": "",
+    "run_local_probe": false,
+    "save_full_distributions": true,
+    "save_outputs": true,
+    "seed": 7,
+    "show_summary_every": 5,
+    "show_top_final": 15,
+    "support_size": 200,
+    "text_length": 5000,
+    "tol": 1e-10
+  },
+  "final_metrics": {
+    "entropy": 5.744574862143755,
+    "last_rollout_residual": 0.0001902234125660777,
+    "last_step_l1": 0.0001902234125660777,
+    "status": "Status: the map appears numerically close to a fixed point.",
+    "support_size": 764
+  },
+  "history": {
+    "modes_used": [
+      "exact"
+    ],
+    "steps_completed": 30
+  },
+  "initial_metrics": {
+    "entropy": 4.868787780731299,
+    "support_size": 200
+  },
+  "local_probe": {
+    "enabled": false,
+    "max_ratio": null,
+    "mean_ratio": null
+  },
+  "notebook": "ngram_population_large_scale_theorem1.ipynb",
+  "run_slug": "20260308_213537_seed7_V10_n4_random_support_dirichlet_R200_alpha1_iter30_modeauto",
+  "saved_at": "2026-03-08T21:35:37",
+  "saved_files": [
+    "run_manifest.json",
+    "summary.txt",
+    "initial_marginal_summary.csv",
+    "initial_top_ngrams.csv",
+    "history_full.csv",
+    "history_compact.csv",
+    "final_marginal_summary.csv",
+    "final_top_ngrams.csv",
+    "initial_distribution_full.csv",
+    "final_distribution_full.csv",
+    "plot_convergence_l1.png",
+    "plot_support_size.png",
+    "plot_entropy.png"
+  ]
+}

@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Synthetic theorem~3 inheritance experiment: exact evolved-environment gap and downstream recovery.}
+\label{tab:appx-theorem3-cross-entropy}
+\begin{tabular}{lcc}
+\toprule
+Model or environment & Exact KL to $q$ (bits) & Top-1 agreement with $q$ \\
+\midrule
+Base trigram kernel $p$ & 0.054 & 0.408 \\
+Smoothed trigram agent (50,000 pairs) & 0.013 $\pm$ 0.000 & 0.845 $\pm$ 0.022 \\
+Small neural next-token agent (50,000 pairs) & 0.015 $\pm$ 0.001 & 0.839 $\pm$ 0.017 \\
+\bottomrule
+\end{tabular}
+\end{table}

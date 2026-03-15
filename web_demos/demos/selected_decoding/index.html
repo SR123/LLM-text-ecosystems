@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selected Decoding Demo</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="hero"><h1>Selected Decoding Intuition</h1><p>Neutral sampling vs short-horizon selected decoding.</p></header>
+  <section class="panel">
+    <div class="controls">
+      <div><label>Teacher score(A)</label><input id="sA" type="number" value="0.9" step="0.1" /></div>
+      <div><label>Teacher score(B)</label><input id="sB" type="number" value="0.7" step="0.1" /></div>
+      <div><label>Future viability(A)</label><input id="vA" type="number" value="0.2" step="0.05" min="0" max="1" /></div>
+      <div><label>Future viability(B)</label><input id="vB" type="number" value="0.9" step="0.05" min="0" max="1" /></div>
+    </div>
+    <p><button id="run">Evaluate</button></p>
+    <pre id="out"></pre>
+  </section>
+<script>
+function run() {
+  const sA = Number(document.getElementById('sA').value);
+  const sB = Number(document.getElementById('sB').value);
+  const vA = Number(document.getElementById('vA').value);
+  const vB = Number(document.getElementById('vB').value);
+  const greedy = sA >= sB ? 'A' : 'B';
+  const selectedA = sA + vA;
+  const selectedB = sB + vB;
+  const selected = selectedA >= selectedB ? 'A' : 'B';
+
+  document.getElementById('out').textContent = JSON.stringify({
+    teacher_scores: { A: sA, B: sB },
+    viability: { A: vA, B: vB },
+    neutral_greedy_choice: greedy,
+    selected_decoding_choice: selected,
+    note: 'Visible next token can change when short-horizon viability is included.'
+  }, null, 2);
+}
+
+document.getElementById('run').addEventListener('click', run);
+run();
+</script>
+</body>
+</html>

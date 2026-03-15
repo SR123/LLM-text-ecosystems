@@ -1,0 +1,13 @@
+Run tag: thm2_V5_n3_r7_a1p0_b0p8_descPrevRDirect_seed1_exact_20260309_052921
+Output folder: thm2_V5_n3_r7_a1p0_b0p8_descPrevRDirect_seed1_exact_20260309_052921
+V=5, n=3, r=7, alpha=1.0, beta=0.8
+lookahead_mode=descriptive_prev_r_direct, rollout_mode=exact, generated_final_mode=exact
+final public support size = 3100
+final public entropy      = 6.867304
+final induced n support   = 55
+final induced n entropy   = 3.531100
+final strong L1 gap       = 2.812957e-04
+final strong KL gap       = 1.475469e-05
+final worst r-gram        = 4134004
+final max r-gram abs diff = 6.207439e-06
+Mass-weighted mean suffix L1 = 3.832470e-16. Worst prefix = 413 with prefix-L1 contribution 3.124897e-05, public prefix mass 6.088240e-02, generated prefix mass 6.085115e-02, and suffix conditional L1 4.485344e-16.

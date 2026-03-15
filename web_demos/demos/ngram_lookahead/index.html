@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N-gram Lookahead Demo</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="hero"><h1>N-gram Lookahead Toy</h1><p>Neutral vs viability-based next-token selection.</p></header>
+  <section class="panel">
+    <div class="controls">
+      <div><label>Order n</label><input id="n" type="number" value="3" min="1" max="6" /></div>
+      <div><label>Horizon r</label><input id="r" type="number" value="2" min="1" max="10" /></div>
+      <div><label>Viability(B)</label><input id="vB" type="number" value="0.8" step="0.05" min="0" max="1" /></div>
+      <div><label>Viability(C)</label><input id="vC" type="number" value="0.9" step="0.05" min="0" max="1" /></div>
+    </div>
+    <p><button id="run">Compare</button></p>
+    <pre id="out"></pre>
+  </section>
+<script>
+function normalize(obj) {
+  const sum = Object.values(obj).reduce((a, b) => a + b, 0);
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) out[k] = sum > 0 ? v / sum : 0;
+  return out;
+}
+
+function run() {
+  const n = Number(document.getElementById('n').value);
+  const r = Number(document.getElementById('r').value);
+  const vB = Number(document.getElementById('vB').value);
+  const vC = Number(document.getElementById('vC').value);
+
+  const neutral = { A: 0.5, B: 0.3, C: 0.2 };
+  const viability = { A: 0.2, B: vB, C: vC };
+  const weighted = {
+    A: neutral.A * Math.pow(viability.A, r),
+    B: neutral.B * Math.pow(viability.B, r),
+    C: neutral.C * Math.pow(viability.C, r),
+  };
+  const selected = normalize(weighted);
+
+  document.getElementById('out').textContent = JSON.stringify({
+    order_n: n,
+    horizon_r: r,
+    neutral,
+    viability,
+    selected,
+    support_graph_hint: 'higher viability keeps more future paths alive'
+  }, null, 2);
+}
+
+document.getElementById('run').addEventListener('click', run);
+run();
+</script>
+</body>
+</html>

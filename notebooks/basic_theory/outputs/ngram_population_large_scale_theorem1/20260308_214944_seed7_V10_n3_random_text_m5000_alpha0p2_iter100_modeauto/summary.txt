@@ -1,0 +1,24 @@
+run_slug: 20260308_214944_seed7_V10_n3_random_text_m5000_alpha0p2_iter100_modeauto
+saved_at: 2026-03-08T21:49:44
+
+Configuration
+- V = 10
+- n = 3
+- init_mode = random_text
+- text_length = 5000
+- seed = 7
+- alpha = 0.2
+- iterations = 100
+- rollout_mode = auto
+- min_context_mass = 0.0
+
+Initial
+- support_size = 991
+- entropy = 6.803979
+
+Final
+- support_size = 991
+- entropy = 6.803902
+- last_step_l1 = 1.230040e-08
+- last_rollout_residual = 6.150201e-08
+- Status: the map appears numerically close to a fixed point.

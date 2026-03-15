@@ -1,0 +1,6 @@
+demos:
+  - drift_unigram
+  - absorbing_markov
+  - ngram_lookahead
+  - selected_decoding
+assets_data_dir: GitHub/web_demos/assets/data

@@ -1,0 +1,3 @@
+manifest: GitHub/corpora/manifests/corpora_manifest.yaml
+default_split_seed: 13
+split_ratios: [0.8, 0.1, 0.1]

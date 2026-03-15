@@ -1,0 +1,8 @@
+experiment_name: markov_absorbing_demo
+horizon: 8
+states: [alive_0, alive_1, absorbing]
+transition:
+  - [0.7, 0.2, 0.1]
+  - [0.2, 0.6, 0.2]
+  - [0.0, 0.0, 1.0]
+alive_mask: [true, true, false]

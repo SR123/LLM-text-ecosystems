@@ -1,0 +1,71 @@
+corpora:
+  - id: conan_doyle
+    author: Arthur Conan Doyle
+    titles:
+      - The Adventures of Sherlock Holmes
+      - The Sign of Four
+      - The Hound of the Baskervilles
+    source: Project Gutenberg and imported local workspace files
+    license: Public domain
+    raw_path: corpora/raw/conan_doyle
+    cleaned_path: corpora/cleaned/conan_doyle
+    split_paths:
+      train: corpora/splits/conan_doyle/train.txt
+      val: corpora/splits/conan_doyle/val.txt
+      test: corpora/splits/conan_doyle/test.txt
+  - id: jane_austen
+    author: Jane Austen
+    titles:
+      - Pride and Prejudice
+      - Sense and Sensibility
+      - Emma
+    source: Project Gutenberg
+    license: Public domain
+    raw_path: corpora/raw/jane_austen
+    cleaned_path: corpora/cleaned/jane_austen
+    split_paths:
+      train: corpora/splits/jane_austen/train.txt
+      val: corpora/splits/jane_austen/val.txt
+      test: corpora/splits/jane_austen/test.txt
+  - id: charles_darwin
+    author: Charles Darwin
+    titles:
+      - On the Origin of Species
+      - The Descent of Man
+      - The Voyage of the Beagle
+    source: Project Gutenberg
+    license: Public domain
+    raw_path: corpora/raw/charles_darwin
+    cleaned_path: corpora/cleaned/charles_darwin
+    split_paths:
+      train: corpora/splits/charles_darwin/train.txt
+      val: corpora/splits/charles_darwin/val.txt
+      test: corpora/splits/charles_darwin/test.txt
+  - id: mark_twain
+    author: Mark Twain
+    titles:
+      - Adventures of Huckleberry Finn
+      - The Adventures of Tom Sawyer
+      - A Connecticut Yankee in King Arthur's Court
+    source: Project Gutenberg
+    license: Public domain
+    raw_path: corpora/raw/mark_twain
+    cleaned_path: corpora/cleaned/mark_twain
+    split_paths:
+      train: corpora/splits/mark_twain/train.txt
+      val: corpora/splits/mark_twain/val.txt
+      test: corpora/splits/mark_twain/test.txt
+  - id: mary_shelley
+    author: Mary Shelley
+    titles:
+      - Frankenstein
+      - The Last Man
+      - Valperga
+    source: Project Gutenberg
+    license: Public domain
+    raw_path: corpora/raw/mary_shelley
+    cleaned_path: corpora/cleaned/mary_shelley
+    split_paths:
+      train: corpora/splits/mary_shelley/train.txt
+      val: corpora/splits/mary_shelley/val.txt
+      test: corpora/splits/mary_shelley/test.txt

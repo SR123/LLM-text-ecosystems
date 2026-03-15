@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drift Unigram Demo</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="hero"><h1>Unigram Drift Demo</h1><p>Wright-Fisher style recursion in a mixed environment.</p></header>
+  <section class="panel">
+    <div class="controls">
+      <div><label>Population M</label><input id="M" type="number" value="400" min="50" max="5000" /></div>
+      <div><label>Minority Start</label><input id="mu" type="number" value="0.1" step="0.01" min="0.01" max="0.9" /></div>
+      <div><label>Alpha</label><input id="alpha" type="number" value="0.8" step="0.05" min="0" max="1" /></div>
+      <div><label>Generations</label><input id="gens" type="number" value="40" min="5" max="200" /></div>
+    </div>
+    <p><button id="run">Simulate</button></p>
+    <canvas id="plot" width="900" height="320"></canvas>
+    <pre id="stats"></pre>
+  </section>
+
+<script type="module">
+import { drawSeries } from '../../assets/js/common.js';
+
+function simulate(M, mu0, alpha, gens) {
+  let mu = mu0;
+  const out = [mu];
+  for (let t = 0; t < gens; t++) {
+    let k = 0;
+    for (let i = 0; i < M; i++) if (Math.random() < mu) k += 1;
+    mu = (1 - alpha) * mu + alpha * (k / M);
+    out.push(mu);
+  }
+  return out;
+}
+
+const plot = document.getElementById('plot');
+const stats = document.getElementById('stats');
+function run() {
+  const M = Number(document.getElementById('M').value);
+  const mu0 = Number(document.getElementById('mu').value);
+  const alpha = Number(document.getElementById('alpha').value);
+  const gens = Number(document.getElementById('gens').value);
+  const s = simulate(M, mu0, alpha, gens);
+  drawSeries(plot, s, '#b54d2f');
+  const pDrop = Math.pow(1 - mu0, M);
+  stats.textContent = JSON.stringify({
+    initial_dropout_probability: pDrop,
+    final_minority_mass: s[s.length - 1],
+    variance_scaling: `${alpha}^2 * mu*(1-mu)/${M}`
+  }, null, 2);
+}
+
+document.getElementById('run').addEventListener('click', run);
+run();
+</script>
+</body>
+</html>

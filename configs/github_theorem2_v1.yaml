@@ -1,0 +1,90 @@
+run_family: github_theorem2_v1
+
+paths:
+  raw_root: GitHub/data/raw/github
+  processed_root: GitHub/data/processed/github
+  output_root: GitHub/data/outputs/github_theorem2
+  figures_appendix: GitHub/figures/appendix
+  figures_paper_main: GitHub/figures/paper_main
+  database: GitHub/data/databases/experiment_index.sqlite
+
+collection:
+  mode: mock  # mock | live
+  github_api_base: https://api.github.com
+  github_token_env: GITHUB_TOKEN
+  repos:
+    - containerd/containerd
+    - helm/helm
+    - prometheus/prometheus
+    - coredns/coredns
+    - jaegertracing/jaeger
+  start: "2021-01-01T00:00:00Z"
+  end: "2025-12-31T23:59:59Z"
+  max_prs_per_repo: 120
+  include_drafts: false
+  fallback_to_merged_when_incomplete: true
+
+labels:
+  require_approve_review: true
+  require_success_status_or_checks: true
+  selected_tier_name: selected_env
+
+splits:
+  train_frac: 0.70
+  val_frac: 0.10
+  test_frac: 0.20
+  min_repos_required: 3
+  min_selected_docs_per_repo: 20
+  balanced_test_per_repo: 20
+
+ngram:
+  order: 3
+  tokenizer: word
+
+transformer:
+  enabled: true
+  vocab_size: 2000
+  model_type: bpe
+  d_model: 128
+  n_heads: 4
+  n_layers: 2
+  d_ff: 512
+  context_len: 128
+  dropout: 0.1
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  max_steps: 300
+  eval_interval: 60
+  eval_batches: 15
+  warmup_steps: 30
+  early_stopping_patience: 4
+  save_interval: 100
+  batch_size: 24
+  seed: 20260303
+
+metrics:
+  phrase_templates:
+    - fix
+    - merge
+    - review
+    - approved
+    - issue
+    - ci
+    - request changes
+
+stop_go:
+  min_repos: 3
+  min_selected_docs_total: 120
+  min_selected_candidate_jsd: 0.01
+  min_selected_test_docs: 40
+
+artifacts:
+  repo_manifest_yaml: github_repo_manifest.yaml
+  split_manifest_yaml: github_split_manifest.yaml
+  observational_summary_csv: github_observational_summary.csv
+  theorem2_metrics_csv: github_theorem2_metrics.csv
+  candidate_samples_txt: github_samples_candidate.txt
+  selected_samples_txt: github_samples_selected.txt
+  entropy_figure_pdf: figure_github_entropy_selection.pdf
+  theorem2_figure_pdf: figure_github_theorem2_crossentropy.pdf
+  diagnostic_report_md: diagnostic_github_report.md

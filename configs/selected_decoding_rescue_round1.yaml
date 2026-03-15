@@ -1,0 +1,22 @@
+selected_decoding:
+  mode: sampled_reranked
+  horizon: 3
+  first_step_top_k: 8
+  beam_width: 4
+  branch_temperature: 1.0
+  selection_temperature: 1.0
+  sampling_top_k: null
+  sampling_top_p: 0.95
+  sampled_candidate_count: 4
+  sampled_branch_len: 16
+  repetition_ngram: 4
+  repetition_penalty: 0.8
+  repeated_span_length: 8
+  repeated_span_penalty: 0.35
+  unique_token_floor: 0.30
+  unique_token_penalty: 0.20
+  no_repeat_ngram_size: 4
+  max_identical_token_run: 3
+  length_normalize: true
+  deterministic: true
+  device_preference: mps_or_cpu

@@ -1,0 +1,11 @@
+experiment_name: multiple_corpora_sweep
+corpora:
+  - conan_doyle
+  - jane_austen
+  - charles_darwin
+  - mark_twain
+  - mary_shelley
+summary_metrics:
+  - tokens
+  - unique_tokens
+  - type_token_ratio

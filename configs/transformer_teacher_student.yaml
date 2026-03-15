@@ -1,0 +1,80 @@
+paths:
+  root_outputs_dir: GitHub/data/outputs/transformer_conan_doyle
+  processed_dir: GitHub/data/processed/transformer_conan_doyle
+  figures_paper_dir: GitHub/figures/paper_main
+  figures_appendix_dir: GitHub/figures/appendix
+  db_path: GitHub/data/databases/experiment_index.sqlite
+
+corpus:
+  split_dir: GitHub/corpora/splits/conan_doyle
+
+configs:
+  tokenizer_config_path: GitHub/configs/tokenizer_conan_doyle.yaml
+  selected_decoding_config_path: GitHub/configs/selected_decoding.yaml
+
+model:
+  d_model: 128
+  n_heads: 4
+  n_layers: 2
+  d_ff: 512
+  context_len: 128
+  dropout: 0.1
+  tie_weights: true
+  bias: true
+  max_seq_len: 128
+
+training:
+  batch_size: 32
+  context_len: 128
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  max_steps: 4000
+  eval_interval: 200
+  eval_batches: 50
+  warmup_steps: 100
+  gradient_accumulation_steps: 1
+  clip_grad_norm: 1.0
+  early_stopping_patience: 6
+  save_interval: 500
+  seed: 12345
+  device_preference: mps_or_cpu
+
+student_training:
+  batch_size: 32
+  context_len: 128
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  max_steps: 2500
+  eval_interval: 200
+  eval_batches: 30
+  warmup_steps: 100
+  gradient_accumulation_steps: 1
+  clip_grad_norm: 1.0
+  early_stopping_patience: 5
+  save_interval: 400
+  seed: 23456
+  device_preference: mps_or_cpu
+
+environments:
+  pilot_total_tokens: 100000
+  full_total_tokens: 250000
+  prompt_len: 64
+  generation_prompt_count: 512
+  evaluation_prompt_count: 512
+  neutral_temperature: 1.0
+  neutral_top_k: null
+  neutral_top_p: 0.95
+  max_new_tokens_per_prompt: 64
+  checkpoint_interval_prompts: 20
+
+evaluation:
+  pilot_prompt_count: 256
+  full_prompt_count: 512
+  continuation_tokens: 32
+  heldout_eval_batches: 40
+
+seeds:
+  master: 12345
+  prompts: 22334
+  environments: 33445
+  students: 44556

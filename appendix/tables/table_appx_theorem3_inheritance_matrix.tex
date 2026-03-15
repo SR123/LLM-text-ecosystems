@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\caption{Inheritance matrix for Theorem~3 across drift and hidden-trace filtering examples.}
+\label{tab:appx-theorem3-inheritance-matrix}
+\begin{tabular}{p{0.18\linewidth}p{0.14\linewidth}p{0.20\linewidth}p{0.17\linewidth}p{0.18\linewidth}}
+\toprule
+Upstream transformation & Corpus/task & What is gained & What is lost & Expected downstream inheritance \\
+\midrule
+Drift concentration & Doyle, Austen, Darwin literary corpora & Local standardisation of high-frequency forms & Rare lexical and high-order support & Narrower conditional; reduced rare-form recall \\
+Drift concentration & Austen orthographic-variant pilot & Suppression of low-support variants & Rare clean-vocabulary retention & Inherited standardisation with lexical thinning \\
+Hidden-trace filtering & Arithmetic traces (Task~A) & Compact final answers & Intermediate search steps and carries & Weaker process-learning generalisation \\
+Hidden-trace filtering & Arithmetic environment comparison (Task~B, direct mode) & Cleaner direct artefact emission and zero marker contamination & Worked traces no longer taught & Stronger direct-answer deployment when the target is immediate artefact emission \\
+\bottomrule
+\end{tabular}
+\end{table}

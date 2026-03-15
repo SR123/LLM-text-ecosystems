@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Theorem~3 extension: downstream recovery from an actual iterated theorem~2 environment.}
+\label{tab:appx-theorem3-iterated-extension}
+\begin{tabular}{lcc}
+\toprule
+Model or environment & Exact KL to final $q$ (bits) & Top-1 agreement with final $q$ \\
+\midrule
+Initial trigram kernel $p_0$ & 2.681 & 0.872 \\
+Smoothed trigram learner (20,000 pairs) & 0.003 $\pm$ 0.000 & 0.999 $\pm$ 0.002 \\
+Small neural next-token learner (20,000 pairs) & 0.002 $\pm$ 0.001 & 0.994 $\pm$ 0.007 \\
+\bottomrule
+\end{tabular}
+\end{table}
